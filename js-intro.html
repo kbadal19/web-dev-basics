@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS intro</title>
+</head>
+<body>
+    <p id="result">View your result</p>
+    <button onclick="check()">Check</button>
+
+    <script>
+    function check() {
+    let marks = 45;
+    if (marks >= 50) {
+        document.getElementById("result").innerText = "Pass";
+    } else {
+        document.getElementById("result").innerText = "Fail";
+    }
+    }
+    </script>
+
+</body>
+</html>

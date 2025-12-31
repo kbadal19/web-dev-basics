@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Demo Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1 class="title">CSS Demo Website</h1>
+        <p class="subtitle">Understanding classes, ids, box model & responsiveness</p>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <hr/>
+
+    <ul type="disc">
+        <li>Classes</li>
+        <li>IDs</li>
+        <li>Box Model</li>
+        <li>Responsive Images</li>
+    </ul>
+
+    <dl>
+        <dt>Class</dt>
+        <dd>A style that can be applied to multiple elements.</dd>
+        <dt>ID</dt>
+        <dd>A unique style that can only be applied to one element.</dd>
+        <dt>Box Model</dt>
+        <dd>The box model consists of margins, borders, padding, and the actual content.</dd>
+        <dt>Responsive Images</dt>
+        <dd>Images that scale nicely to fit different screen sizes.</dd>
+    </dl>
+
+    <!-- Nested Lists -->
+
+    <ul>
+        <li>Classes
+            <ol>
+                <li>Class 1</li>
+                <li>Class 2</li>
+            </ol>
+        </li>
+        <li>IDs
+            <ol>
+                <li>ID 1</li>
+                <li>ID 2</li>
+            </ol>
+        </li>
+    </ul>
+
+    <!-- Table Example: -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Element</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr colspan="2">
+                <td>Class</td>
+                <!-- <td>A reusable style for multiple elements.</td> -->
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>A unique style for a single element.</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <img src="123.webp" alt="Demo Image" class="responsive-image"/>
+    <section class="container">
+        <div class="card">
+            <h2 class="card-title">Card One</h2>
+            <p>
+                This card uses padding, margin and border.<br/> Change the CSS values to see what moves.
+            </p>
+        </div>
+
+        <div class="card highlight">
+            <h2 class="card-title">Card Two</h2>
+            <p>
+                This card has an extra class applied to it.
+                Same HTML, different look.
+            </p>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <p>© 2025 Demo Website</p>
+    </footer>
+
+</body>
+</html>

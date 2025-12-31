@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <input id="num1">
+    <input id="num2">
+    <button onclick="add()">Add</button>
+    <p id="ans"></p>
+
+    <script>
+        function add(){
+            let n1=Number(document.getElementById("num1").value);
+            let n2=Number(document.getElementById("num2").value);
+            let sum=n1+n2;
+            document.getElementById("ans").innerText=sum;
+        }
+    </script>
+</body>
+</html>

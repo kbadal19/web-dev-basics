@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Input Attributes Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form id="mainForm"
+      action="/"
+      method="get"
+      target="_self"
+      autocomplete="on"
+      novalidate>
+
+    <fieldset>
+        <legend>My Input form</legend>
+
+        <!-- text + value + autofocus + required -->
+        <label for="fname">First Name</label>
+        <input type="text"
+               id="fname"
+               name="fname"
+               value="John"
+               autofocus
+               required>
+
+
+        <!-- readonly -->
+        <label for="lname">Last Name (readonly)</label>
+        <input type="text"
+               id="lname"
+               name="lname"
+               value="Doe"
+               readonly>
+
+        <!-- disabled -->
+        <label for="code">Disabled Field</label>
+        <input type="text"
+               id="code"
+               value="Badal"
+               disabled>
+
+        <!-- email + pattern + placeholder -->
+        <label for="email">Email</label>
+        <input type="email"
+               id="email"
+               name="email"
+               placeholder="user@example.com"
+               required>
+
+        <!-- number + min + max + step -->
+        <label for="age">Age</label>
+        <input type="number"
+               id="age"
+               name="age"
+               min="18"
+               max="90"
+               step="3">
+        
+        <!-- radio -->
+        <div class="inline-group">
+            <label>Gender:</label><br>
+            <input type="radio" id="m" name="gender" value="male">
+            <label for="m" style="font-weight: normal;">Male</label>
+            <input type="radio" id="f" name="gender" value="female">
+            <label for="f" style="font-weight: normal;">Female</label>
+        </div>
+
+        <!-- checkbox -->
+        <div class="inline-group">
+            <label>Skills:</label><br>
+            <input type="checkbox" name="skill" value="html">HTML
+            <input type="checkbox" name="skill" value="css">CSS
+            <input type="checkbox" name="skill" value="js">JS
+        </div>
+
+         <!-- dropdown -->
+        <label for="country">Country (Standard Dropdown)</label>
+        <select id="country" name="country">
+            <option value="" disabled selected>Select your country</option>
+            <option value="ind">India</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ca">Canada</option>
+            <option value="au">Australia</option>
+        </select>
+
+        <!-- select + multiple -->
+        <label for="course">Courses (Multiple Select)</label>
+        <select id="course" name="course" multiple size="3">
+            <option value="cse">CSE</option>
+            <option value="ece">ECE</option>
+            <option value="mech">Mechanical</option>
+        </select>
+
+        <!-- textarea -->
+        <label for="address">Address</label>
+        <textarea id="address"
+                  name="address"
+                  rows="4"
+                  cols="30"></textarea>
+
+        <!-- datalist -->
+        <label for="browser">Browser Preference</label>
+        <input list="browsers" name="browser" placeholder="Start typing...">
+        <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Edge">
+        </datalist>
+
+        <!-- file + multiple -->
+        <label for="docs">Upload Files</label>
+        <input type="file"
+               id="docs"
+               name="docs"
+               multiple>
+
+        <!-- range -->
+        <label for="vol">Volume Control</label>
+        <input type="range"
+               id="vol"
+               name="vol"
+               min="-100"
+               max="200">
+
+        <!-- TABLE SECTION -->
+        <h3>Select Subscription Plan</h3>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Plan Name</th>
+                    <th>Storage</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="radio" name="plan" value="free" checked></td>
+                    <td>Starter</td>
+                    <td>5 GB</td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="plan" value="pro"></td>
+                    <td>Professional</td>
+                    <td>50 GB</td>
+                    <td>$10.00</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="plan" value="enterprise"></td>
+                    <td>Enterprise</td>
+                    <td>Unlimited</td>
+                    <td>$50.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- hidden -->
+        <input type="hidden" name="user_id" value="12345">
+
+        <!-- output -->
+        <label>Status Output:</label>
+        <output name="result">Form Ready</output>
+
+    </fieldset>
+
+    <div class="button-grid">
+        <!-- default submit -->
+        <input type="submit" value="Submit Default">
+
+        <!-- overrides action -->
+        <input type="submit"
+               value="Submit as Admin"
+               formaction="/admin_action.php">
+
+        <!-- overrides method -->
+        <input type="submit"
+               value="Submit POST"
+               formmethod="post">
+
+        <!-- overrides target -->
+        <input type="submit"
+               value="Submit New Tab"
+               formtarget="_blank">
+
+        <!-- overrides enctype -->
+        <input type="submit"
+               value="Submit Multipart"
+               formenctype="multipart/form-data">
+
+        <!-- skips validation -->
+        <input type="submit"
+               value="Skip Validation"
+               formnovalidate
+               title="Submits without checking required fields">
+
+        <!-- reset -->
+        <input type="reset" value="Reset Form">
+    </div>
+
+</form>
+
+<!-- input linked to form using form attribute -->
+<div class="outside-container">
+    <h3>External Input</h3>
+    <p>This input is physically outside the <code>&lt;form&gt;</code> tag, but linked logically via the <code>form="mainForm"</code> attribute.</p>
+    <label for="outside">Extra Comments</label>
+    <input type="text"
+           id="outside"
+           name="outside_field"
+           form="mainForm"
+           placeholder="Enter comments here...">
+</div>
+<script src="script.js"></script>
+</body>
+</html>

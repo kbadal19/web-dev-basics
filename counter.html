@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<br>
+    <button onclick="increment()"> Click to Increment</button>
+    <button onclick="decrement()"> Click to Decrement</button>
+    <p id="count">0</p>
+    <input type="password" id="passwrd">
+    <button onclick="toggle()">Show/Hide</button>
+    <!-- <button onclick="changeBG()">Change BG Color</button> -->
+<br>
+    <input type="checkbox" onchange="count1()">Delhi
+    <input type="checkbox" onchange="count1()">Patna
+    <input type="checkbox" onchange="count1()">Mumbai
+    <input type="checkbox" onchange="count1()">Kolkata
+
+    <p id="cnt">0</p>
+
+
+    <script>
+        let n=0
+        function increment(){
+            n+=2; //n=n+2
+            document.getElementById("count").innerText=n;
+        }
+        function decrement(){
+            n-=1; //n=n-1
+            document.getElementById("count").innerText=n;
+        }
+        function toggle(){
+            let p=document.getElementById("passwrd");
+            p.type=p.type==="password"?"text":"password"
+        }
+        function changeBG(){
+            let colors=["red","blue","green","yellow","pink","purple","orange"];
+            let index=Math.floor(Math.random()*colors.length);
+            document.body.style.backgroundColor=colors[index];
+        }
+
+        function count1(){
+            document.getElementById("cnt").innerText=document.querySelectorAll('input[type="checkbox"]:checked').length;
+        }
+    </script>
+</body>
+</html>
+
+

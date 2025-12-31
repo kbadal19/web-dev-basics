@@ -1,0 +1,133 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* Beautiful Gradient Background */
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  width: 350px;
+  text-align: center;
+  /* Soft Shadow for depth */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px); /* Glass effect */
+  transition: transform 0.3s ease;
+}
+
+.app:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+input:focus {
+  border-color: #74ebd5;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(116, 235, 213, 0.3);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Styles for the Dynamic Javascript Content */
+.result {
+  margin-top: 25px;
+  text-align: left;
+  background: #f1f4f8;
+  border-radius: 15px;
+  padding: 20px;
+  display: none; /* Hidden until data loads */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.result p:last-child {
+  border-bottom: none;
+}
+
+.result b {
+  color: #333;
+  font-weight: 600;
+  display: inline-block;
+  width: 110px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Specific styling for error messages */
+.error-msg {
+  color: #e74c3c;
+  margin-top: 15px;
+  font-weight: 500;
+}

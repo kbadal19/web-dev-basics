@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="to-do.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>To-Do List</h2>
+        <form id="todoForm">
+            <div class="input-group">
+                <input type="text" id="taskName" placeholder="Task Name" required>
+                <input type="date" id="taskDate" required>
+                <input type="time" id="taskTime" required>
+                <input type="text" id="assignedTo" placeholder="Assigned To" required>
+                <button type="submit" id="addBtn">Add</button>
+            </div>
+        </form>
+
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th class="col-cb">Done</th>
+                    <th>Task Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Assigned To</th>
+                    <th class="col-action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const currentTime=new Date().toTimeString().slice(0,5);
+        document.getElementById("taskTime").setAttribute("min", currentTime);
+
+        const today=new Date().toISOString().split('T')[0];
+        document.getElementById("taskDate").setAttribute("min", today);
+
+        const form = document.getElementById('todoForm');
+        const tableBody = document.querySelector('#taskTable tbody');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const taskName = document.getElementById('taskName').value;
+            const taskDate = document.getElementById('taskDate').value;
+            const taskTime = document.getElementById('taskTime').value;
+            const assignedTo = document.getElementById('assignedTo').value;
+
+            addTaskRow(taskName, taskDate, taskTime, assignedTo);
+
+            form.reset();
+        });
+
+        function addTaskRow(task, date, time, assignee) {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td class="col-cb" data-label="Done">
+                    <input type="checkbox" class="task-checkbox">
+                </td>
+                <td data-label="Task Name">${task}</td>
+                <td data-label="Date">${date}</td>
+                <td data-label="Time">${time}</td>
+                <td data-label="Assigned To">${assignee}</td>
+                <td class="col-action" data-label="Action">
+                    <button class="delete-btn">Delete</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        }
+
+        tableBody.addEventListener('click', function(event) {
+            const target = event.target;
+            const row = target.closest('tr'); 
+
+            if (!row) return;
+
+            if (target.classList.contains('delete-btn')) {
+                row.remove();
+            }
+            if (target.classList.contains('task-checkbox')) {
+                setTimeout(() => {
+                    row.remove();
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

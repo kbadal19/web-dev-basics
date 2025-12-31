@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+
+<div class="app">
+    <h2>Weather App</h2>
+
+    <input type="text" id="city" placeholder="Enter city name..." autocomplete="off">
+    <button onclick="getWeather()">Check Weather</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    const apiKey = "your API key here";
+
+    function getWeather() {
+        const city = document.getElementById("city").value;
+        const result = document.getElementById("result");
+
+        if (city === "") {
+            result.style.display = "block";
+            result.innerHTML = "<p class='error-msg'>Please enter a city name</p>";
+            return;
+        }
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            .then(response => response.json())
+            .then(data => {
+                result.style.display = "block";
+                
+                if (data.cod === "404") {
+                    result.innerHTML = "<p class='error-msg'>City not found</p>";
+                    return;
+                }
+
+                const iconCode = data.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+                result.innerHTML = `
+                    <div style="text-align: center;">
+                        <img src="${iconUrl}" alt="Weather Icon">
+                    </div>
+                    <p><b>City:</b> ${data.name}, ${data.sys.country}</p>
+                    <p><b>Temp:</b> ${Math.round(data.main.temp)} °C</p>
+                    <p><b>Weather:</b> ${data.weather[0].description}</p>
+                    <p><b>Humidity:</b> ${data.main.humidity}%</p>
+                    <p><b>Wind:</b> ${data.wind.speed} m/s</p>
+                `;
+            })
+            .catch(() => {
+                result.style.display = "block";
+                result.innerHTML = "<p class='error-msg'>Error fetching data</p>";
+            });
+    }
+</script>
+
+</body>
+</html>
